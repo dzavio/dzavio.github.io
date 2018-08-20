@@ -1,0 +1,86 @@
+﻿<html>
+<meta charset="utf-8"/>
+<head>
+<title>Calculadora</title>
+</head>
+<script>
+var rows_counter = 1;
+
+function atualizar()
+{
+	alert("Oi");
+}
+
+function remover(row_id)
+{
+    if (row_id !== undefined)
+    {
+        row = document.getElementById(row_id);
+        document.getElementById("tb_comodos").deleteRow(row.rowIndex);
+    }
+}
+
+function editar(row_id)
+{
+    if (row_id !== undefined)
+    {
+        row = document.getElementById(row_id);
+        var cells = row.cells;
+
+        alert("Hello! " + cells[0].innerHTML);
+    }
+}
+
+function adicionar()
+{
+    var table = document.getElementById("tb_comodos");
+    
+    var row = table.insertRow(-1);
+    row.setAttribute("id", rows_counter);
+
+    var cName = row.insertCell(0);
+    var cArea = row.insertCell(1);
+    cArea.align = "center";
+    var cPerim = row.insertCell(2);
+    cPerim.align = "center";
+    var cBtn = row.insertCell(3);
+    cBtn.align = "center";    
+
+    cName.innerHTML = "<input type='text' value='" + document.getElementById("input_name").value + "' style='text-align:left;'>";
+    cArea.innerHTML = "<input type='text' value='" + document.getElementById("input_area").value + 
+                      "' onchange='atualizar()' size='10' style='text-align:right;'>";
+    cPerim.innerHTML = "<input type='text' value='" + document.getElementById("input_perimetro").value + 
+                       "' onchange='atualizar()' size='10' style='text-align:right;'>";
+    cBtn.innerHTML = "<button onclick=remover(" + rows_counter + ")>-</button>";
+
+    rows_counter = rows_counter + 1;
+}
+</script>
+<body>
+    <center><h1>Calculadora</h1></center>
+    <table border="1" >
+    <tr>
+    <td width=50%>
+    <form>
+    <fieldset>
+        <legend>Informações do cômodo</legend>
+        Nome:<input type="text" id="input_name">
+        Área:<input type="text" id="input_area">
+        Perímetro:<input type="text" id="input_perimetro">        
+    </fieldset>
+    </form>    
+    <button onclick="adicionar()">Adicionar</button>
+
+    <center><h2>Lista de Cômodos</h2></center>
+    <form>
+    <table border="1" width=100% id="tb_comodos">
+    <tr><td>Nomes dos Comodos</td><td align="center">Área (m<sup>2</sup>)</td><td align="center">Perímetro (m)</td><td></td></tr>
+    </table>
+    </td>
+    <td width=50%><center><h2>Relatório</h2></center></td>
+    </tr>
+    </table>
+    </form>
+    <p id="demo"></p>    
+</body>
+</html>
