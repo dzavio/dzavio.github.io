@@ -185,6 +185,12 @@ function adicionar()
 
     rows_counter = rows_counter + 1;
 
+    document.getElementById("input_name").value = "";
+    document.getElementById("input_area").value = "";
+    document.getElementById("input_perimetro").value = "";
+    
+    document.getElementById("input_name").focus();
+    
     atualizar();
 }
 
@@ -250,9 +256,9 @@ function openTab(evt, tabName) {
     		<button onclick="adicionar()">Adicionar</button>
 			</div> 
     		<h2 style="text-align: center">Lista de Cômodos</h2>
-       		<table border="0" style="width:100%;" id="tb_comodos">
+       		<table style="width:100%;" id="tb_comodos">
            	<tr>
-            	<td>Nomes dos Comodos</td>
+            	<td>Nomes dos Cômodos</td>
             	<td align="center">Área (m<sup>2</sup>)</td>
             	<td align="center">Perímetro (m)</td>
             	<td> </td>
