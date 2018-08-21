@@ -20,6 +20,14 @@ input[type=text], select, textarea {
     resize: vertical;
 }
 
+input[type=numbers], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
 label {
     padding: 12px 12px 12px 0;
     display: inline-block;
@@ -148,8 +156,6 @@ function editar(row_id)
     {
         row = document.getElementById(row_id);
         var cells = row.cells;
-
-        alert("Hello! " + cells[0].innerHTML);
     }
 
     atualizar();
@@ -171,9 +177,9 @@ function adicionar()
     cBtn.align = "center";    
 
     cName.innerHTML = document.getElementById("input_name").value;
-    cArea.innerHTML = "<input type='text' value='" + document.getElementById("input_area").value + 
+    cArea.innerHTML = "<input type='numbers' value='" + document.getElementById("input_area").value + 
                       "' onchange='atualizar()' size='10' style='text-align:right;'>";
-    cPerim.innerHTML = "<input type='text' value='" + document.getElementById("input_perimetro").value + 
+    cPerim.innerHTML = "<input type='numbers' value='" + document.getElementById("input_perimetro").value + 
                        "' onchange='atualizar()' size='10' style='text-align:right;'>";
     cBtn.innerHTML = "<button onclick=remover(" + rows_counter + ")>-</button>";
 
@@ -228,7 +234,7 @@ function openTab(evt, tabName) {
         			<label for="inputarea">Área</label>
       			</div>
       			<div class="col-92">
-        			<input type="text" id="input_area" name="inputarea" placeholder="Área do cômodo..">
+        			<input type="numbers" id="input_area" name="inputarea" placeholder="Área do cômodo..">
       			</div>
     		</div> 		
     		<div class="row">
@@ -236,7 +242,7 @@ function openTab(evt, tabName) {
         			<label for="inputperim">Perímetro</label>
       			</div>
       			<div class="col-92">
-        			<input type="text" id="input_perimetro" name="inputperim" placeholder="Perímetro do cômodo..">
+        			<input type="numbers" id="input_perimetro" name="inputperim" placeholder="Perímetro do cômodo..">
       			</div>
     		</div>      
     		</form>    
